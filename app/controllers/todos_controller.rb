@@ -10,7 +10,12 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(todo_params)
+  end
 
+  private
+
+  def todo_params
+    params.require(:todo).permit(:name, :completed, )
   end
 
 
