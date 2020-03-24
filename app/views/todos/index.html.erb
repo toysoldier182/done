@@ -1,3 +1,4 @@
+
 <div class="container mt-4">
   <div class="row">
     <div class="col-xs-10 col-sm-4 col-lg-4">
@@ -16,6 +17,39 @@
         </li>
         <% end %>
       </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-6">
+    <p class="lead">Job Board:  <span><%= @wwr_feed.channel.title %></span></p>
+    <ul>
+      <% @wwr_feed.items.each do |item| %>
+        <li>
+          <%= link_to "#{item.link}" do %>
+            <%= item.title %>
+          <% end %>
+        </li>
+
+      <% end %>
+    </ul>
+    </div>
+
+    <div class="col-10 col-sm-6">
+    <p class="lead">Job Board:  Remote.OK <span> (<%= @remote_ok_jobs.count %> jobs)</span></p>
+    <ul>
+      <% @remote_ok_jobs.each do |job| %>
+
+        <li>
+          <%= link_to "https://remoteok.io/remote-jobs/#{job["slug"]}" do %>
+            <%= job["company"] %>: <span><%= job["position"] %></span>
+          <% end %>
+        </li>
+      <% end %>
+
+    </ul>
     </div>
   </div>
 </div>
